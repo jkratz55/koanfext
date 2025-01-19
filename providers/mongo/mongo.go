@@ -1,4 +1,4 @@
-package providers
+package mongo
 
 import (
 	"context"
@@ -23,8 +23,8 @@ type MongoDB struct {
 	changeStream *mongo.ChangeStream
 }
 
-// MongoDBProvider initializes and returns a new MongoDB instance.
-func MongoDBProvider(client *mongo.Client, db, collection, docId string) *MongoDB {
+// Provider initializes and returns a new MongoDB instance.
+func Provider(client *mongo.Client, db, collection, docId string) *MongoDB {
 	if client == nil {
 		panic("client is nil")
 	}

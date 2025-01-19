@@ -1,8 +1,10 @@
-package parsers
+package toml
 
 import (
 	"github.com/knadh/koanf/v2"
 	"github.com/pelletier/go-toml/v2"
+
+	"github.com/jkratz55/koanfext/parsers/env"
 )
 
 var _ koanf.Parser = (*Toml)(nil)
@@ -10,13 +12,13 @@ var _ koanf.Parser = (*Toml)(nil)
 // Toml is a koanf.Parser for encoding/decoding Toml files.
 type Toml struct{}
 
-// TomlParser returns a koanf.Parser for TOML data
-func TomlParser() *Toml {
+// Parser returns a koanf.Parser for TOML data
+func Parser() *Toml {
 	return &Toml{}
 }
 
 func (t *Toml) Unmarshal(bytes []byte) (map[string]interface{}, error) {
-	content, err := ParseEnvironment(bytes)
+	content, err := env.ParseEnvironment(bytes)
 	if err != nil {
 		return nil, err
 	}

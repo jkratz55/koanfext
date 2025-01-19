@@ -1,8 +1,10 @@
-package parsers
+package bson
 
 import (
 	"github.com/knadh/koanf/v2"
 	"go.mongodb.org/mongo-driver/bson"
+
+	"github.com/jkratz55/koanfext/parsers/env"
 )
 
 var _ koanf.Parser = (*BSON)(nil)
@@ -10,13 +12,13 @@ var _ koanf.Parser = (*BSON)(nil)
 // BSON is a koanf.Parser for encoding/decoding BSON data.
 type BSON struct{}
 
-// BsonParser returns a koanf.Parser for BSON data
-func BsonParser() *BSON {
+// Parser returns a koanf.Parser for BSON data
+func Parser() *BSON {
 	return &BSON{}
 }
 
 func (B BSON) Unmarshal(bytes []byte) (map[string]interface{}, error) {
-	content, err := ParseEnvironment(bytes)
+	content, err := env.ParseEnvironment(bytes)
 	if err != nil {
 		return nil, err
 	}

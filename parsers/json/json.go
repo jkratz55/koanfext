@@ -1,9 +1,11 @@
-package parsers
+package json
 
 import (
 	"encoding/json"
 
 	"github.com/knadh/koanf/v2"
+
+	"github.com/jkratz55/koanfext/parsers/env"
 )
 
 var _ koanf.Parser = (*JSON)(nil)
@@ -11,13 +13,13 @@ var _ koanf.Parser = (*JSON)(nil)
 // JSON is a koanf.Parser for encoding/decoding JSON data.
 type JSON struct{}
 
-// JsonParser returns a koanf.Parser for JSON data
-func JsonParser() *JSON {
+// Parser returns a koanf.Parser for JSON data
+func Parser() *JSON {
 	return &JSON{}
 }
 
 func (J *JSON) Unmarshal(bytes []byte) (map[string]interface{}, error) {
-	content, err := ParseEnvironment(bytes)
+	content, err := env.ParseEnvironment(bytes)
 	if err != nil {
 		return nil, err
 	}

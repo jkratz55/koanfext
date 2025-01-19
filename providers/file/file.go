@@ -1,4 +1,4 @@
-package providers
+package file
 
 import (
 	"fmt"
@@ -21,8 +21,8 @@ type File struct {
 	watched atomic.Uint32
 }
 
-// FileProvider initializes a new File.
-func FileProvider(path string) *File {
+// Provider initializes a new File.
+func Provider(path string) *File {
 	return &File{
 		path:    path,
 		watcher: nil,

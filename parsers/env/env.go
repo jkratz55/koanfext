@@ -1,4 +1,4 @@
-package parsers
+package env
 
 import (
 	"errors"
