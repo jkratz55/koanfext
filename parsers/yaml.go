@@ -7,8 +7,10 @@ import (
 
 var _ koanf.Parser = (*Yaml)(nil)
 
+// Yaml is a koanf.Parser for encoding/decoding yaml data.
 type Yaml struct{}
 
+// YamlParser returns a koanf.Parser for YAML data
 func YamlParser() *Yaml {
 	return &Yaml{}
 }

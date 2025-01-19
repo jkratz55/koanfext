@@ -8,8 +8,10 @@ import (
 
 var _ koanf.Parser = (*JSON)(nil)
 
+// JSON is a koanf.Parser for encoding/decoding JSON data.
 type JSON struct{}
 
+// JsonParser returns a koanf.Parser for JSON data
 func JsonParser() *JSON {
 	return &JSON{}
 }

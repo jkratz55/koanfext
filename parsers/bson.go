@@ -7,8 +7,10 @@ import (
 
 var _ koanf.Parser = (*BSON)(nil)
 
+// BSON is a koanf.Parser for encoding/decoding BSON data.
 type BSON struct{}
 
+// BsonParser returns a koanf.Parser for BSON data
 func BsonParser() *BSON {
 	return &BSON{}
 }

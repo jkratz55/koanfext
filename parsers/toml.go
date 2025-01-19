@@ -7,8 +7,10 @@ import (
 
 var _ koanf.Parser = (*Toml)(nil)
 
+// Toml is a koanf.Parser for encoding/decoding Toml files.
 type Toml struct{}
 
+// TomlParser returns a koanf.Parser for TOML data
 func TomlParser() *Toml {
 	return &Toml{}
 }
